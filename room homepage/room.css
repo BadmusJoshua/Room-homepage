@@ -1,0 +1,350 @@
+@keyframes fade {
+  /* 0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  } */
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.box {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  width: 100%;
+  min-height: 60vh;
+  max-height: fit-content;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  margin-top: -15px;
+}
+.header {
+  width: 45%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 1vw -25px;
+  z-index: 1;
+}
+.header img {
+  height: 15px;
+  min-width: 30px;
+  max-width: 70px;
+  margin: auto 0px;
+}
+.web-link {
+  font-size: 2vw;
+}
+.web-link:hover::after {
+  content: "";
+  display: block;
+  margin: 2px auto 0px;
+  width: 70%;
+  border-bottom: 1px solid white;
+}
+.hamburger-menu {
+  display: none;
+}
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+  background-color: #616161;
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+  background-color: #616161;
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+  background-color: #616161;
+}
+#menu__toggle:checked ~ .open-menu {
+  left: 0 !important;
+}
+
+.menu__btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+  background-color: none;
+}
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition-duration: 0.25s;
+  margin: auto 0;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+.open-menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  transition-duration: 0.25s;
+}
+.menu__box {
+  height: 5%;
+  width: 100%;
+  top: 0;
+  background-color: white;
+  display: flex;
+  z-index: 1;
+}
+.menu-list {
+  width: 80%;
+  position: absolute;
+  right: 0;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px 0;
+}
+.dark-overlay {
+  background-color: black;
+  opacity: 0.7;
+  width: 100%;
+  height: 95%;
+  border: 1px solid black;
+}
+.menu__item {
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 5vw;
+  text-decoration: none;
+}
+
+.top-image {
+  width: 60%;
+}
+
+.top-image .slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.top-image .slide.fade {
+  animation: fade 0.5 cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+.top-image .slide img {
+  width: 100%;
+  height: 100%;
+}
+.top-text {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.text {
+  width: 80%;
+  align-self: center;
+  margin: auto;
+}
+.text > h1 {
+  width: 79%;
+  font-size: 3vw;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.text > h6 {
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-weight: lighter;
+}
+.shop-now {
+  width: 20vw;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border: none;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  letter-spacing: 8px;
+}
+.shop-now > img {
+  width: 20%;
+  height: 10px;
+  filter: invert(0) brightness(1);
+  margin: auto 0;
+}
+.controls {
+  width: 80px;
+  height: 12.5%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.controls img {
+  filter: invert(0) brightness(1);
+  height: 50%;
+  margin: auto;
+}
+:is(#prev-btn, #next-btn) {
+  background-color: black;
+  width: 40px;
+  border: none;
+}
+:is(#prev-btn, #next-btn):hover {
+  background-color: gray;
+}
+:is(#prev-btn, #next-btn, .shop-now):hover {
+  cursor: pointer;
+}
+.bottom {
+  width: 100%;
+  min-height: 40vh;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+.bottom-image1 {
+  width: 33.3%;
+  background-image: url(/images/image-about-dark.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.bottom-text {
+  width: 33.3%;
+  height: fit-content;
+  display: flex;
+  align-content: center;
+  margin: auto;
+  justify-content: center;
+}
+.bottom-text h4 {
+  font-size: 3vw;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+.bottom-text h6 {
+  font-size: 15px;
+  font-weight: lighter;
+}
+.b-text {
+  width: 80%;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+}
+.bottom-image2 {
+  width: 33.3%;
+  background-image: url(/images/image-about-light.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 375px) {
+  .box {
+    width: 100%;
+    flex-direction: column;
+  }
+  .header {
+    width: 100%;
+  }
+  .header img {
+    align-self: center;
+    margin: auto;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  .web-link {
+    display: none;
+  }
+  .top {
+    flex-direction: column;
+  }
+  .top-image {
+    width: 100%;
+    height: 45vh;
+  }
+  #slide1 {
+    content: url("/images/mobile-image-hero-1.jpg");
+  }
+  #slide2 {
+    content: url("/images/mobile-image-hero-2.jpg");
+  }
+  #slide3 {
+    content: url("/images/mobile-image-hero-3.jpg");
+  }
+  .top-text {
+    width: 100%;
+    min-height: 20vh;
+  }
+  .text {
+    padding: 15px 0px;
+    margin: auto;
+  }
+  .text > h1 {
+    font-size: 25px;
+    width: 90%;
+    line-height: 20px;
+  }
+  .text > h6 {
+    font-size: 12px;
+  }
+  .controls {
+    position: absolute;
+    top: 37vh;
+    right: 0;
+    height: 50px;
+    width: 80px;
+  }
+  .shop-now {
+    width: 100%;
+    /* border: 1px solid; */
+  }
+  .bottom {
+    min-height: 90%;
+    max-height: 93%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  :is(.bottom-image1, .bottom-text, .bottom-image2) {
+    width: 100%;
+    min-height: 30vh;
+  }
+  .b-text > h4 {
+    font-size: 20px;
+  }
+  .b-text > h6 {
+    font-size: 12px;
+  }
+}
